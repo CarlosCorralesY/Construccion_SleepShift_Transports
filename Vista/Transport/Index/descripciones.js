@@ -7,7 +7,7 @@ var ciudadesViajes = ["Arequipa", "Puno", "Lima", "Camaná", "Moquegua", "Ilo", 
 var costosViajes = {
     "Arequipa": "S/.100",
     "Puno": "S/.120",
-    "Lima": "S/.80",
+    "Lima": "S/.90",
     "Camaná": "S/.150",
     "Moquegua": "S/.130",
     "Ilo": "S/.140",
