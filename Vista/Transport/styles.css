@@ -6,7 +6,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center; /* Centrar verticalmente */
+    justify-content: center; 
     height: 100vh;
 }
 
@@ -26,7 +26,7 @@ h1 {
 
 .login-form {
     max-width: 300px;
-    margin: 0 auto; /* Centrar horizontalmente */
+    margin: 0 auto; 
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -68,7 +68,7 @@ button[type="submit"]:hover {
     background-color: #555;
 }
 
-/* Estilos para el logotipo en la esquina superior derecha */
+
 .logo {
     position: fixed;
     top: 10px;
