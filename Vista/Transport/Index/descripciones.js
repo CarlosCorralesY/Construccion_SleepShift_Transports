@@ -3,6 +3,7 @@ var conductores = ["Juan Carlos Corrales Nunez", "Carlos Daniel Corrales Yarasca
 
 var ciudadesViajes = ["Arequipa", "Puno", "Lima", "Camaná", "Moquegua", "Ilo", "Pocsi", "Tacna"];
 
+var unidadesBuses = ["Bus Escania", "Bus Volvo", "Bus Modasa", "Bus Volare"];
 
 var costosViajes = {
     "Arequipa": "S/.100",
@@ -25,6 +26,10 @@ function mostrarConductores() {
 
     var viajesInfo = document.getElementById('viajes-info');
     viajesInfo.style.display = 'none';
+
+    var unidadesInfo = document.getElementById('unidades-info');
+    unidadesInfo.style.display = 'none';
+
 
     var costosInfo = document.getElementById('costos-info');
     costosInfo.style.display = 'none';
@@ -58,6 +63,8 @@ function mostrarCiudadesViajes() {
     var costosInfo = document.getElementById('costos-info');
     costosInfo.style.display = 'none';
 
+    var unidadesInfo = document.getElementById('unidades-info');
+    unidadesInfo.style.display = 'none';
  
     var viajesInfo = document.getElementById('viajes-info');
     viajesInfo.style.display = 'block';
@@ -86,6 +93,9 @@ function mostrarCostos() {
 
     var costosInfo = document.getElementById('costos-info');
     costosInfo.style.display = 'block';
+    
+    var unidadesInfo = document.getElementById('unidades-info');
+    unidadesInfo.style.display = 'none';
 
     var costosLista = costosInfo.querySelector('ul');
     costosLista.innerHTML = '';
@@ -108,12 +118,49 @@ function limpiarContenido() {
     var costosInfo = document.getElementById('costos-info');
     costosInfo.style.display = 'none';
 
+    var unidadesInfo = document.getElementById('unidades-info');
+    unidadesInfo.style.display = 'none';
+
     var contenidoDebajoSubMenu = document.getElementById('contenido-debajo-submenu');
     contenidoDebajoSubMenu.innerHTML = '';
+    
 }
 
+// Función para mostrar la informacion de los buses de asignacion
+function mostrarUnidadesBuses() {
+    var contenidoDebajoSubMenu = document.getElementById('contenido-debajo-submenu');
+    contenidoDebajoSubMenu.innerHTML = '';
+
+    var conductoresInfo = document.getElementById('conductores-info');
+    conductoresInfo.style.display = 'none';
+
+    var viajesInfo = document.getElementById('viajes-info');
+    viajesInfo.style.display = 'none';
+
+    var costosInfo = document.getElementById('costos-info');
+    costosInfo.style.display = 'none';
+
+    var unidadesInfo = document.getElementById('unidades-info');
+    unidadesInfo.style.display = 'block';
+
+    var unidadesLista = unidadesInfo.querySelector('ul');
+    unidadesLista.innerHTML = '';
+
+    for (var i = 0; i < unidadesBuses.length; i++) {
+        var unidadItem = document.createElement('li');
+        unidadItem.textContent = unidadesBuses[i];
+        unidadesLista.appendChild(unidadItem);
+    }
+}
+
+// Función para redirigir al usuario al login
+function redirigirAlLogin() {
+    window.location.href = "../Login/Login.html";
+}
 
 document.getElementById('conductores-link').addEventListener('click', mostrarConductores);
 document.getElementById('viajes-link').addEventListener('click', mostrarCiudadesViajes);
 document.getElementById('costos-link').addEventListener('click', mostrarCostos);
 document.getElementById('limpiar-link').addEventListener('click', limpiarContenido);
+document.getElementById('unidades-link').addEventListener('click', mostrarUnidadesBuses);
+document.getElementById('salir-link').addEventListener('click', redirigirAlLogin);
