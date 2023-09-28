@@ -1,3 +1,4 @@
+
 # SleepShift Transports
 
 ![logo](https://github.com/CarlosCorralesY/Construccion_SleepShift_Transports/assets/90006714/6798ac6f-e8b4-42f4-a5df-3a5c5fe6d3f9)
@@ -22,3 +23,5 @@ El desarrollo de una aplicación destinada a monitorear el sueño de los conduct
 ## Casos de uso
 
 ![Flowchart](https://github.com/CarlosCorralesY/Construccion_SleepShift_Transports/assets/90006714/f4090471-c1f8-4af9-852d-d9c63edd4543)
+![UML class](https://github.com/CarlosCorralesY/Construccion_SleepShift_Transports/assets/90006714/db8a8f36-b97f-4ed3-b2a1-8192bf88400a)
+
