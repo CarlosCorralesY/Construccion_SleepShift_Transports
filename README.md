@@ -25,3 +25,21 @@ El desarrollo de una aplicación destinada a monitorear el sueño de los conduct
 ![Flowchart](https://github.com/CarlosCorralesY/Construccion_SleepShift_Transports/assets/90006714/f4090471-c1f8-4af9-852d-d9c63edd4543)
 ![UML class](https://github.com/CarlosCorralesY/Construccion_SleepShift_Transports/assets/90006714/db8a8f36-b97f-4ed3-b2a1-8192bf88400a)
 
+## Diseños
+### Login
+
+![Login](https://github.com/CarlosCorralesY/Construccion_SleepShift_Transports/assets/90006714/ff5f22af-e5a9-4621-b4fa-d002ad720bbd)
+
+### Pagina principal
+![1](https://github.com/CarlosCorralesY/Construccion_SleepShift_Transports/assets/90006714/3e45a25a-729a-44fd-befc-2df5c0d53507)
+![2](https://github.com/CarlosCorralesY/Construccion_SleepShift_Transports/assets/90006714/5ea233e0-7962-4256-b017-26ae039d99ff)
+![3](https://github.com/CarlosCorralesY/Construccion_SleepShift_Transports/assets/90006714/07910471-7497-480d-b276-44ce62320855)
+![4](https://github.com/CarlosCorralesY/Construccion_SleepShift_Transports/assets/90006714/78d4d300-1557-4239-8010-8d76be631267)
+![5](https://github.com/CarlosCorralesY/Construccion_SleepShift_Transports/assets/90006714/ee2ac412-93d8-4897-96cc-ba957d54f2c5)
+![6](https://github.com/CarlosCorralesY/Construccion_SleepShift_Transports/assets/90006714/1f1b1c73-4372-4528-a45b-09dd0a289b77)
+![7](https://github.com/CarlosCorralesY/Construccion_SleepShift_Transports/assets/90006714/d4939648-e523-46fe-9e53-768964ab1dba)
+![8](https://github.com/CarlosCorralesY/Construccion_SleepShift_Transports/assets/90006714/8e2ea01d-30c4-4ef5-b1b9-085ddc90a451)
+
+## Conclusiones
+
+En conclusión, la creación de una aplicación que combine el análisis de datos de sueño, la asignación automática de viajes y la notificación de descanso obligatorio es fundamental para garantizar la seguridad en el transporte por carretera. Esta aplicación permitirá evaluar la fatiga de los conductores, asignar viajes de manera eficiente y asegurar que los conductores descansen cuando sea necesario. En última instancia, su implementación contribuirá a reducir los riesgos asociados con la fatiga al volante, mejorando así la seguridad vial y protegiendo la vida de conductores y pasajeros.
