@@ -1,7 +1,7 @@
 # Construccion SleepShift Transports
 
 <p align="center">
- <img![logo](https://github.com/CarlosCorralesY/Construccion_SleepShift_Transports/assets/90006714/91c014d6-78c5-4058-99de-69023c0546b0)>
+ <img width="600" height="200" src="https://www.python.org/python-.png">
 </p>
 La falta de descanso en largos trayectos es una causa importante de accidentes por somnolencia. La falta de conciencia sobre este riesgo y la escasez de áreas de descanso agravan la situación. Para enfrentarla, se necesita aplicar normativas de descanso, mejorar áreas de descanso y educar sobre la fatiga al volante.
 
