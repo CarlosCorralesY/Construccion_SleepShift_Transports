@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles_viajes.css">
+    <title>Tabla de Viajes</title>
+</head>
+<body>
+    <h1>Viajes Disponibles</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Lugar de Origen</th>
+                <th>Lugar de Destino</th>
+                <th>ID del Viaje</th>
+                <th>Minutos Totales</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% viajes.forEach((viaje) => { %>
+                <tr>
+                    <td><%= viaje.lugar_origen %></td>
+                    <td><%= viaje.lugar_destino %></td>
+                    <td><%= viaje.id_viaje %></td>
+                    <td><%= viaje.minutos_totales %></td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+</body>
+</html>

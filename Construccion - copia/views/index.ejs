@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles_index.css">
+    <title>SleepShift Transports Reports</title>
+</head>
+
+<body>
+    <header>
+        <h1>SleepShift Transports Reports</h1>
+    </header>
+    <hr class="linea-titulo">
+    <ul class="submenu">
+        <li><a href="#" id="conductores-link">Conductores</a></li>
+        <li><a href="#" id="viajes-link">Viajes</a></li>
+        <li><a href="#" id="costos-link">Costos</a></li>
+        <li><a href="#">Reportes</a></li>
+        <li><a href="#" id="unidades-link">Unidades</a></li>
+        <li><a href="#">Solicitudes</a></li>
+        <li><a href="#" id="limpiar-link">Limpiar</a></li>
+        <li><a href="#" id="salir-link">Salir</a></li>
+    </ul>
+    <div id="contenido-debajo-submenu">
+        <div id="conductores-info" class="info">
+            <ul> </ul>
+        </div>
+        <div id="viajes-info" class="info" style="display: none;">
+
+            <ul></ul>
+        </div>
+        <div id="costos-info" class="info" style="display: none;">
+            <ul></ul>
+        </div>
+        <div id="unidades-info" class="info" style="display: none;">
+            <ul></ul>
+        </div>
+    </div>
+    <div class="acciones" style="display: none;">
+        <button id="agregar-conductor">Agregar Conductor</button>
+        <button id="quitar-conductor">Quitar Conductor</button>
+        <button id="actualizar-conductor">Actualizar Conductor</button>
+        <input type="text" id="dni-eliminar" placeholder="DNI del Conductor a Eliminar">
+    </div>
+    <div class="acciones-viaje" style="display: none;"> <!-- Clase actualizada -->
+        <button id="agregar-viaje" style="display: block;">Agregar Viaje</button>
+        <button id="quitar-viaje" style="display: block;">Quitar Viaje</button>
+    </div>
+
+    <img src="../imagenes/logo.png" alt="Logo SleepShift Transports" class="logo">
+    <img src="../imagenes/logo.png" alt="Logo SleepShift Transports" class="logo2">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+
+        $(document).ready(function () {
+            // Cuando se hace clic en "Conductores"
+            $("#conductores-link").on("click", function (e) {
+                e.preventDefault();
+
+                // Oculta los elementos de "Viajes" si están visibles
+                $("#viajes-info").hide();
+
+                // Realiza una solicitud Fetch al servidor para obtener los conductores
+                fetch("/conductores")
+                    .then((response) => response.text())
+                    .then((data) => {
+                        $(".acciones").show();
+                        // Actualiza el contenido dinámico con la vista de conductores
+                        $("#contenido-debajo-submenu").html(data);
+                        addEventListenersToButtons();
+                    })
+                    .catch((error) => {
+                        console.error("Error al cargar la vista de conductores:", error);
+                    });
+            });
+        });
+        $("#agregar-conductor").on("click", function () {
+            const nombre = prompt("Ingrese el nombre del conductor:");
+            const dni = prompt("Ingrese el DNI del conductor:");
+            const horasSueno = prompt("Ingrese las horas de sueño del conductor:");
+
+            // Validar que se hayan proporcionado datos
+            if (nombre !== null && dni !== null && horasSueno !== null) {
+                // Aquí puedes realizar las acciones para agregar el conductor con los datos proporcionados
+                // Por ejemplo, puedes enviar estos datos al servidor a través de una solicitud AJAX.
+            }
+            $.ajax({
+                url: "/agregar-conductor",
+                method: "POST",
+                data: { nombre, dni, horasSueno },
+                success: function (response) {
+                    alert("Conductor agregado con éxito.");
+                },
+                error: function (error) {
+                    console.error("Error al agregar el conductor:", error);
+                }
+            });
+        });
+        $("#quitar-conductor").on("click", function () {
+            // Obtener el DNI del conductor a eliminar
+            const dniEliminar = $("#dni-eliminar").val();
+
+            if (dniEliminar) {
+                if (confirm("¿Estás seguro de que deseas eliminar este conductor?")) {
+                    $.ajax({
+                        url: "/eliminar-conductor",
+                        method: "POST",
+                        data: { dni: dniEliminar },
+                        success: function (response) {
+                            alert("Conductor eliminado con éxito.");
+                        },
+                        error: function (error) {
+                            console.error("Error al eliminar el conductor:", error);
+                        }
+                    });
+                }
+            } else {
+                alert("Ingresa un DNI válido para eliminar al conductor.");
+            }
+        });
+        $("#actualizar-conductor").on("click", function () {
+            const dniActualizar = prompt("Ingrese el DNI del conductor a actualizar:");
+
+            if (dniActualizar) {
+                const nombreNuevo = prompt("Ingrese el nuevo nombre:");
+                const dniNuevo = prompt("Ingrese el nuevo DNI:");
+                const horasSuenoNuevo = prompt("Ingrese las nuevas horas de sueño:");
+
+                if (nombreNuevo !== null && dniNuevo !== null && horasSuenoNuevo !== null) {
+                    $.ajax({
+                        url: "/actualizar-conductor",
+                        method: "POST",
+                        data: {
+                            dni: dniActualizar,
+                            nombre: nombreNuevo,
+                            dniNuevo: dniNuevo,
+                            horasSuenoNuevo: horasSuenoNuevo
+                        },
+                        success: function (response) {
+                            alert("Conductor actualizado con éxito.");
+                        },
+                        error: function (error) {
+                            console.error("Error al actualizar el conductor:", error);
+                        }
+                    });
+                }
+            }
+        });
+        $(document).ready(function () {
+            $("#viajes-link").on("click", function (e) {
+                e.preventDefault();
+
+                // Oculta la sección de "Conductores"
+                $("#conductores-info").hide();
+
+                // Muestra la sección de "Viajes"
+                $("#viajes-info").show();
+
+                // Muestra las acciones de viajes (clase corregida)
+                $(".acciones-viaje").show();
+
+                fetch("/viajes")
+                    .then((response) => response.text())
+                    .then((data) => {
+                        // Actualiza el contenido de "Viajes" con los datos obtenidos
+                        $("#viajes-info ul").html(data);
+                    })
+                    .catch((error) => {
+                        console.error("Error al cargar la vista de Viajes:", error);
+                    });
+            });
+        });
+        $("#agregar-viaje").on("click", function () {
+        const lugarOrigen = prompt("Ingrese el lugar de origen del viaje:");
+        const lugarDestino = prompt("Ingrese el lugar de destino del viaje:");
+        const idViaje = prompt("Ingrese el ID del viaje:");
+        const minutosViaje = prompt("Ingrese la duración en minutos del viaje:");
+
+        if (lugarOrigen && lugarDestino && idViaje && minutosViaje) {
+            $.ajax({
+                url: "/agregar-viaje",
+                method: "POST",
+                data: {
+                    lugarOrigen,
+                    lugarDestino,
+                    idViaje,
+                    minutosViaje
+                },
+                success: function (response) {
+                    alert("Viaje agregado con éxito.");
+                },
+                error: function (error) {
+                    console.error("Error al agregar el viaje:", error);
+                }
+            });
+        }
+    });
+    $("#quitar-viaje").on("click", function () {
+        const idViaje = prompt("Ingrese el ID del viaje a eliminar:");
+
+        if (idViaje) {
+            if (confirm("¿Estás seguro de que deseas eliminar este viaje?")) {
+                $.ajax({
+                    url: "/quitar-viaje", // Asegúrate de que tengas una ruta en tu servidor para manejar esta solicitud
+                    method: "POST",
+                    data: {
+                        idViaje
+                    },
+                    success: function (response) {
+                        alert("Viaje eliminado con éxito.");
+                    },
+                    error: function (error) {
+                        console.error("Error al eliminar el viaje:", error);
+                    }
+                });
+            }
+        } else {
+            alert("Ingresa un ID de viaje válido para eliminarlo.");
+        }
+    });
+    </script>
+</body>
+
+</html>
