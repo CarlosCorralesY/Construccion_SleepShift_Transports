@@ -24,6 +24,10 @@ El desarrollo de una aplicación destinada a monitorear el sueño de los conduct
 
 ![Flowchart](https://github.com/CarlosCorralesY/Construccion_SleepShift_Transports/assets/90006714/f4090471-c1f8-4af9-852d-d9c63edd4543)
 ![UML class](https://github.com/CarlosCorralesY/Construccion_SleepShift_Transports/assets/90006714/db8a8f36-b97f-4ed3-b2a1-8192bf88400a)
+
+## Caso de uso V2
+![Flowchart (1)](https://github.com/CarlosCorralesY/Construccion_SleepShift_Transports/assets/90006714/fd2fefaa-b194-435c-8d5d-174986c0284e)
+
 ## Base de datos
 ![Database ER diagram (crow's foot)](https://github.com/CarlosCorralesY/Construccion_SleepShift_Transports/assets/90006714/ebde20df-00a5-4379-a749-c977925c2a3f)
 
