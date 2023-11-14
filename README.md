@@ -20,10 +20,27 @@ El desarrollo de una aplicación destinada a monitorear el sueño de los conduct
 - Disponibilidad y Tiempo de Respuesta: La aplicación debe estar disponible las 24 horas del día, los 7 días de la semana, y las notificaciones y asignaciones de viajes deben ser rápidas y en tiempo real. La disponibilidad constante y la respuesta rápida son críticas para garantizar que los conductores y pasajeros puedan acceder a la aplicación en cualquier momento y recibir servicios sin demoras significativas.
 - Escalabilidad:La aplicación debe ser capaz de escalar de manera efectiva para manejar un crecimiento en la cantidad de usuarios y datos a lo largo del tiempo. La escalabilidad es esencial para garantizar que la aplicación pueda crecer y adaptarse a medida que más personas la utilicen sin comprometer su rendimiento.
 
+## Tecnolgias 
+- HTML
+- CSS
+- Excel
+
+## Tecnologias v2
+- NODEJS
+- JAVASCRIPT
+- HTML
+- CSS
+- POSTGRES SQL
 ## Casos de uso
 
 ![Flowchart](https://github.com/CarlosCorralesY/Construccion_SleepShift_Transports/assets/90006714/f4090471-c1f8-4af9-852d-d9c63edd4543)
 ![UML class](https://github.com/CarlosCorralesY/Construccion_SleepShift_Transports/assets/90006714/db8a8f36-b97f-4ed3-b2a1-8192bf88400a)
+
+## Caso de uso V2
+![Flowchart (1)](https://github.com/CarlosCorralesY/Construccion_SleepShift_Transports/assets/90006714/fd2fefaa-b194-435c-8d5d-174986c0284e)
+
+## Base de datos
+![Database ER diagram (crow's foot)](https://github.com/CarlosCorralesY/Construccion_SleepShift_Transports/assets/90006714/ebde20df-00a5-4379-a749-c977925c2a3f)
 
 ## Diseños
 ### Login
