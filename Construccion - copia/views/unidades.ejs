@@ -1,0 +1,38 @@
+<!-- views/unidades.ejs -->
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles_unidades.css"> <!-- Puedes tener un archivo CSS específico para esta vista -->
+  <title>Listado de Unidades</title>
+</head>
+
+<body>
+  <h1>Listado de Unidades</h1>
+  <div class="cuadro">
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Tipo</th>
+          <th>Placa</th>
+          <th>Kilometraje</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% unidades.forEach((unidad) => { %>
+          <tr>
+            <td><%= unidad.id %></td>
+            <td><%= unidad.tipo %></td>
+            <td><%= unidad.placa %></td>
+            <td><%= unidad.kilometra %></td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  </div>
+</body>
+
+</html>

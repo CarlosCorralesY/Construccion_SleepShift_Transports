@@ -1,0 +1,24 @@
+<!-- reportes-conductores.ejs -->
+
+<h2>Reportes de Conductores</h2>
+
+<h3>Conductor con más minutos de sueño</h3>
+<p>Nombre: <%= conductorMasSueno.nombre %></p>
+<p>DNI: <%= conductorMasSueno.dni %></p>
+<p>Horas de sueño: <%= conductorMasSueno.horas_de_sueno %></p>
+
+<h3>Recorrido más largo de cada conductor</h3>
+<ul>
+  <% recorridosMasLargos.forEach((recorrido) => { %>
+    <li>
+      <% if (recorrido && recorrido.nombre_conductor) { %>
+        <p>Conductor: <%= recorrido.nombre_conductor %></p>
+        <p>Lugar de origen: <%= recorrido.lugar_origen %></p>
+        <p>Lugar de destino: <%= recorrido.lugar_destino %></p>
+        <p>Minutos totales: <%= recorrido.minutos_totales %></p>
+      <% } else { %>
+        <p>No hay recorridos disponibles para este conductor.</p>
+      <% } %>
+    </li>
+  <% }); %>
+</ul>

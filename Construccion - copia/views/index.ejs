@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/styles_index.css">
+    <link rel="stylesheet" href="/styles_unidades.css">
     <title>SleepShift Transports Reports</title>
 </head>
 
@@ -16,8 +17,7 @@
     <ul class="submenu">
         <li><a href="#" id="conductores-link">Conductores</a></li>
         <li><a href="#" id="viajes-link">Viajes</a></li>
-        <li><a href="#" id="costos-link">Costos</a></li>
-        <li><a href="#">Reportes</a></li>
+        <li><a href="#" id="reportes-link">Reportes</a></li>
         <li><a href="#" id="unidades-link">Unidades</a></li>
         <li><a href="#">Solicitudes</a></li>
         <li><a href="#" id="limpiar-link">Limpiar</a></li>
@@ -25,10 +25,9 @@
     </ul>
     <div id="contenido-debajo-submenu">
         <div id="conductores-info" class="info">
-            <ul> </ul>
+            <ul></ul>
         </div>
         <div id="viajes-info" class="info" style="display: none;">
-
             <ul></ul>
         </div>
         <div id="costos-info" class="info" style="display: none;">
@@ -44,9 +43,16 @@
         <button id="actualizar-conductor">Actualizar Conductor</button>
         <input type="text" id="dni-eliminar" placeholder="DNI del Conductor a Eliminar">
     </div>
-    <div class="acciones-viaje" style="display: none;"> <!-- Clase actualizada -->
-        <button id="agregar-viaje" style="display: block;">Agregar Viaje</button>
-        <button id="quitar-viaje" style="display: block;">Quitar Viaje</button>
+    <div class="acciones-viaje" style="display: none;">
+        <!-- Clase actualizada -->
+        <button id="agregar-viaje">Agregar Viaje</button>
+        <button id="quitar-viaje">Quitar Viaje</button>
+    </div>
+
+    <div id="acciones-unidades" class="acciones" style="display: none;">
+        <button id="agregar-unidad">Agregar Unidad</button>
+        <button id="eliminar-unidad">Eliminar Unidad</button> <!-- Nuevo botón -->
+        <input type="text" id="id-unidad-eliminar" placeholder="ID de la Unidad a Eliminar">
     </div>
 
     <img src="../imagenes/logo.png" alt="Logo SleepShift Transports" class="logo">
@@ -174,54 +180,145 @@
             });
         });
         $("#agregar-viaje").on("click", function () {
-        const lugarOrigen = prompt("Ingrese el lugar de origen del viaje:");
-        const lugarDestino = prompt("Ingrese el lugar de destino del viaje:");
-        const idViaje = prompt("Ingrese el ID del viaje:");
-        const minutosViaje = prompt("Ingrese la duración en minutos del viaje:");
+            const lugarOrigen = prompt("Ingrese el lugar de origen del viaje:");
+            const lugarDestino = prompt("Ingrese el lugar de destino del viaje:");
+            const idViaje = prompt("Ingrese el ID del viaje:");
+            const minutosViaje = prompt("Ingrese la duración en minutos del viaje:");
 
-        if (lugarOrigen && lugarDestino && idViaje && minutosViaje) {
-            $.ajax({
-                url: "/agregar-viaje",
-                method: "POST",
-                data: {
-                    lugarOrigen,
-                    lugarDestino,
-                    idViaje,
-                    minutosViaje
-                },
-                success: function (response) {
-                    alert("Viaje agregado con éxito.");
-                },
-                error: function (error) {
-                    console.error("Error al agregar el viaje:", error);
-                }
-            });
-        }
-    });
-    $("#quitar-viaje").on("click", function () {
-        const idViaje = prompt("Ingrese el ID del viaje a eliminar:");
-
-        if (idViaje) {
-            if (confirm("¿Estás seguro de que deseas eliminar este viaje?")) {
+            if (lugarOrigen && lugarDestino && idViaje && minutosViaje) {
                 $.ajax({
-                    url: "/quitar-viaje", // Asegúrate de que tengas una ruta en tu servidor para manejar esta solicitud
+                    url: "/agregar-viaje",
                     method: "POST",
                     data: {
-                        idViaje
+                        lugarOrigen,
+                        lugarDestino,
+                        idViaje,
+                        minutosViaje
                     },
                     success: function (response) {
-                        alert("Viaje eliminado con éxito.");
+                        alert("Viaje agregado con éxito.");
                     },
                     error: function (error) {
-                        console.error("Error al eliminar el viaje:", error);
+                        console.error("Error al agregar el viaje:", error);
                     }
                 });
             }
-        } else {
-            alert("Ingresa un ID de viaje válido para eliminarlo.");
-        }
-    });
+        });
+        $("#quitar-viaje").on("click", function () {
+            const idViaje = prompt("Ingrese el ID del viaje a eliminar:");
+
+            if (idViaje) {
+                if (confirm("¿Estás seguro de que deseas eliminar este viaje?")) {
+                    $.ajax({
+                        url: "/quitar-viaje", // Asegúrate de que tengas una ruta en tu servidor para manejar esta solicitud
+                        method: "POST",
+                        data: {
+                            idViaje
+                        },
+                        success: function (response) {
+                            alert("Viaje eliminado con éxito.");
+                        },
+                        error: function (error) {
+                            console.error("Error al eliminar el viaje:", error);
+                        }
+                    });
+                }
+            } else {
+                alert("Ingresa un ID de viaje válido para eliminarlo.");
+            }
+        });
+        // agregar unidades
+        $("#unidades-link").on("click", function (e) {
+            e.preventDefault();
+            // Oculta otras secciones si están visibles
+            $("#conductores-info, #viajes-info, #costos-info").hide();
+
+            // Muestra la sección de "Unidades"
+            $("#unidades-info").show();
+
+            // Muestra las acciones específicas de unidades
+            $("#acciones-unidades").show();
+
+            // Realiza una solicitud Fetch al servidor para obtener las unidades
+            fetch("/unidades")
+                .then((response) => response.text())
+                .then((data) => {
+                    // Actualiza el contenido de "Unidades" con los datos obtenidos
+                    $("#unidades-info ul").html(data);
+                })
+                .catch((error) => {
+                    console.error("Error al cargar la vista de Unidades:", error);
+                });
+        });
+
+        $("#agregar-unidad").on("click", function (e) {
+            const id = prompt("Ingrese el ID de la unidad:");
+            const tipo = prompt("Ingrese el tipo de la unidad:");
+            const placa = prompt("Ingrese la placa de la unidad:");
+            const kilometraje = prompt("Ingrese el kilometraje de la unidad:");
+
+            if (id !== null && tipo !== null && placa !== null && kilometraje !== null) {
+                $.ajax({
+                    url: "/agregar-unidad",
+                    method: "POST",
+                    contentType: "application/x-www-form-urlencoded", // Cambiar a este tipo
+                    data: {
+                        id: id,
+                        tipo: tipo,
+                        placa: placa,
+                        kilometraje: kilometraje,
+                    },
+                    success: function (response) {
+                        alert(response.message);
+                    },
+                    error: function (error) {
+                        console.error("Error al agregar la unidad:", error);
+                        alert("Error al agregar la unidad");
+                    }
+                });
+            }
+        });
+        $("#eliminar-unidad").on("click", function () {
+            // Obtener el ID de la unidad a eliminar
+            const idUnidadEliminar = $("#id-unidad-eliminar").val();
+
+            if (idUnidadEliminar) {
+                if (confirm("¿Estás seguro de que deseas eliminar esta unidad?")) {
+                    $.ajax({
+                        url: "/eliminar-unidad", // Asegúrate de tener una ruta en tu servidor para manejar esta solicitud
+                        method: "POST",
+                        data: { id: idUnidadEliminar },
+                        success: function (response) {
+                            alert("Unidad eliminada con éxito.");
+                        },
+                        error: function (error) {
+                            console.error("Error al eliminar la unidad:", error);
+                        }
+                    });
+                }
+            } else {
+                alert("Ingresa un ID de unidad válido para eliminarla.");
+            }
+        });
+        $("#reportes-link").on("click", function (e) {
+            e.preventDefault();
+
+            // Oculta otras secciones si están visibles
+            $("#conductores-info, #viajes-info, #costos-info, #unidades-info").hide();
+
+            // Realiza una solicitud Fetch al servidor para obtener los reportes de conductores
+            fetch("/reportes-conductores")
+                .then((response) => response.text())
+                .then((data) => {
+                    // Actualiza el contenido de "Reportes" con los datos obtenidos
+                    $("#reportes-info").html(data);
+                })
+                .catch((error) => {
+                    console.error("Error al cargar la vista de Reportes de Conductores:", error);
+                });
+        });
     </script>
 </body>
+
 
 </html>
