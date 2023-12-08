@@ -1,0 +1,26 @@
+<!-- reportes.ejs -->
+
+<h2>Reportes</h2>
+
+<h3>Conductores ordenados por minutos de sueño</h3>
+<ul>
+  <% conductores.forEach((conductor) => { %>
+    <li>
+      <p>Nombre: <%= conductor.nombre %></p>
+      <p>DNI: <%= conductor.dni %></p>
+      <p>Horas de sueño: <%= conductor.horas_de_sueno %></p>
+    </li>
+  <% }); %>
+</ul>
+
+<h3>Viajes ordenados por minutos totales</h3>
+<ul>
+  <% viajes.forEach((viaje) => { %>
+    <li>
+      <p>ID del viaje: <%= viaje.id_viaje %></p>
+      <p>Lugar de origen: <%= viaje.lugar_origen %></p>
+      <p>Lugar de destino: <%= viaje.lugar_destino %></p>
+      <p>Minutos totales: <%= viaje.minutos_totales %></p>
+    </li>
+  <% }); %>
+</ul>

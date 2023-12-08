@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles_conductores.css"> <!-- Puedes tener un archivo CSS específico para esta vista -->
+    <title>Listado de Conductores</title>
+
+</head>
+<body>
+    <h1>Conductores Disponibles</h1>
+    <div class="cuadro">
+        <table>
+            <thead>
+                <tr>
+                    <th>DNI</th>
+                    <th>Nombre</th>
+                    <th>Minutos de Sueño</th>
+                    <!-- Agrega más columnas según la estructura de tu tabla "conductor" -->
+                </tr>
+            </thead>
+            <tbody>
+                <% conductores.forEach(function(conductor) { %>
+                    <tr>
+                        <td><%= conductor.dni %></td>
+                        <td><%= conductor.nombre %></td>
+                        <td><%= conductor.horas_de_sueno %></td>
+                        <!-- Agrega más columnas según la estructura de tu tabla "conductor" -->
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

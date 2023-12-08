@@ -1,0 +1,90 @@
+
+body {
+    background-color: #f5f5f5; 
+    margin: 0; 
+    padding: 0; 
+}
+
+header {
+    background-color: #333; 
+    color: #fff; 
+    text-align: center;
+    padding: 70px; 
+    position: relative; 
+}
+
+
+header h1 {
+    margin: 0; 
+}
+
+/* Estilo para la línea horizontal debajo del título */
+hr.linea-titulo {
+    border: none;
+    border-top: 3px solid white; 
+    width: 100%; 
+    position: absolute;
+    top: 17%; 
+}
+
+/* Estilo para del subMenu */
+ul.submenu {
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+    background-color: #333;
+    overflow: hidden;
+}
+
+
+ul.submenu li {
+    float: left;
+}
+
+
+ul.submenu li a {
+    display: block;
+    color: #fff;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    cursor: pointer; 
+}
+
+
+ul.submenu li a:hover {
+    background-color: #555;
+}
+
+
+.info {
+    display: none;
+    text-align: left;
+    margin-top: 20px;
+}
+
+.info p {
+    font-weight: bold;
+}
+
+
+.info ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+.logo {
+    position: fixed;
+    top: 1px;
+    right: 10px;
+    max-width: 250px;
+    z-index: 1;
+}
+
+.logo2 {
+    position: fixed;
+    top: 1px;
+    left: 10px;
+    max-width: 250px;
+    z-index: 0;
+}
