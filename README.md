@@ -57,6 +57,14 @@ El desarrollo de una aplicación destinada a monitorear el sueño de los conduct
 ![7](https://github.com/CarlosCorralesY/Construccion_SleepShift_Transports/assets/90006714/d4939648-e523-46fe-9e53-768964ab1dba)
 ![8](https://github.com/CarlosCorralesY/Construccion_SleepShift_Transports/assets/90006714/8e2ea01d-30c4-4ef5-b1b9-085ddc90a451)
 
+### Pagina principal v2.0
+
+![Mokup4](https://github.com/CarlosCorralesY/Construccion_SleepShift_Transports/assets/90006714/c9589c2d-cc5f-41dc-867f-816ca7544eed)
+![Mokup3](https://github.com/CarlosCorralesY/Construccion_SleepShift_Transports/assets/90006714/4cca2ce9-4b7e-4dd8-b501-a557ceec74fb)
+![mokup2](https://github.com/CarlosCorralesY/Construccion_SleepShift_Transports/assets/90006714/75925581-03a6-4d16-af78-ab2a252a3153)
+![mokup 1](https://github.com/CarlosCorralesY/Construccion_SleepShift_Transports/assets/90006714/8cc2c8ed-be12-493a-afc2-5367e4c148f6)
+
+
 ## Conclusiones
 
 En conclusión, la creación de una aplicación que combine el análisis de datos de sueño, la asignación automática de viajes y la notificación de descanso obligatorio es fundamental para garantizar la seguridad en el transporte por carretera. Esta aplicación permitirá evaluar la fatiga de los conductores, asignar viajes de manera eficiente y asegurar que los conductores descansen cuando sea necesario. En última instancia, su implementación contribuirá a reducir los riesgos asociados con la fatiga al volante, mejorando así la seguridad vial y protegiendo la vida de conductores y pasajeros.
